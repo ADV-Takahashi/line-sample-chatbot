@@ -7,23 +7,17 @@ Original file is located at
     https://colab.research.google.com/drive/1dzTfjh6Rhwl5CrcG-Nz-QqtiD-f-_gsQ
 """
 
-!pip install line-bot-sdk
-
 import json
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+from re import TEMPLATE
 
 file = open('info.json', 'r')
 info = json.load(file)
 
-#info['CHANNEL_ACCESS_TOKEN']
-#info['USER_ID']
-
-from linebot import LineBotApi
-from linebot.models import TextSendMessage
-
 CHANNEL_ACCESS_TOKEN = info['CHANNEL_ACCESS_TOKEN']
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 
-from re import TEMPLATE
 def main():
   USER_ID = info['USER_ID']
   messages = TextSendMessage(text="おはよう\nテストコメントだよ")
